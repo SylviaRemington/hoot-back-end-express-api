@@ -16,6 +16,9 @@ User who created the hoot.
 */
 
 // Be sure to place the commentSchema above hootSchema as it will be referenced inside that object:
+// We don’t need to compile the commentSchema into a model, or export it, as it is 
+// embedded inside the parent hootSchema. As a result, any functionality related to 
+// the comments resource will need to go through the Hoot first.
 
 const commentSchema = new mongoose.Schema(
   {
