@@ -5,13 +5,13 @@
 ## Overview
 - In this module, we’ll build an Express API that serves as the back-end for a full-stack blogging application called Hoot.
 
-- Within our Express API, we’ll implement full CRUD functionality on a blog post resource hoots. Additionally, we will implement create functionality on an embedded resource called comments.
+- Within our Express API, we’ll implement full CRUD functionality on a blog post resource hoots. Additionally, we will implement **create** functionality on an embedded resource called **comments**.
 
 - Our Express API will make use of the Express API JWT Auth Template. This template provides our Express application with pre configured JWT Authentication. This style of authentication in HTTP uses tokens, or unique identifier strings, to tell who a user is when they’re making an authenticated request.
 
-- Thanks to this template, our Express application will already be able to sign up and sign in users. The template also includes a verifyToken middleware function. The verifyToken middleware ensures that any route following it in the middleware pipeline will require authentication before proceeding.
+- Thanks to this template, our Express application will already be able to **sign up** and **sign in** users. The template also includes a **verifyToken** middleware function. The **verifyToken** middleware ensures that any route following it in the middleware pipeline will require authentication before proceeding.
 
-- To demonstrate JWT Authentication, our Express application will use verifyToken to protect all routes related to the hoot resource. This means users will be required to sign in before getting access to any hoot data.
+- To demonstrate JWT Authentication, our Express application will use **verifyToken** to protect all routes related to the hoot resource. This means users will be required to sign in before getting access to any **hoot** data.
 
 ## User Stories
 Our Express API should include functionality for the following user stories:
