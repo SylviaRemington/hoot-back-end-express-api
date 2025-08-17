@@ -2,8 +2,6 @@
 
 **Learning objective:** By the end of this lesson, students will understand the architecture and functional requirements of building a secure Express API for a blogging application, including user authentication and CRUD operations for blog posts and comments.
 
-**About**: In this module, students will build a backend for the Hoot blogging platform using Express and MongoDB. They will create a RESTful API that supports full CRUD functionality for blog posts and comments. Throughout the module, students will focus on designing RESTful routes, managing data relationships with MongoDB, and testing API endpoints with tools like Postman. This practical experience will equip students with essential backend development skills and prepare them for building a full-stack MERN application.
-
 ## Overview
 - In this module, we’ll build an Express API that serves as the back-end for a full-stack blogging application called Hoot.
 
@@ -34,3 +32,5 @@ Take a look at the ERD below to get a sense of the data we’ll be working with:
 ![ERD](./public/images/ERD.png)
 
 ![ExpressPostman](./public/images/Express%20&%20Postman.png)
+
+**In Summary About This Project**: In this module, students will build a backend for the Hoot blogging platform using Express and MongoDB. They will create a RESTful API that supports full CRUD functionality for blog posts and comments. Throughout the module, students will focus on designing RESTful routes, managing data relationships with MongoDB, and testing API endpoints with tools like Postman. This practical experience will equip students with essential backend development skills and prepare them for building a full-stack MERN application.
