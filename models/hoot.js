@@ -1,4 +1,5 @@
 // models/hoot.js
+
 // importing mongoose library - Before we're able to define our model and schema, we must first import mongoose library.
 const mongoose = require('mongoose');
 
@@ -13,6 +14,8 @@ here we will use enum to limit its allowed values to the following:
 The hootSchema will also have an author property, which will act as a reference to the 
 User who created the hoot.
 */
+
+
 
 const hootSchema = new mongoose.Schema(
   {
@@ -39,3 +42,16 @@ const hootSchema = new mongoose.Schema(
 updatedAt properties. We can use the createdAt property when we want to display the date a 
 hoot post was made.
 */
+
+// [NEW] Register the model with Mongoose
+const Hoot = mongoose.model('Hoot', hootSchema); // [NEW]
+
+// [NEW] Export so other files can require it
+module.exports = Hoot; // [NEW]
+
+
+// ----------------
+// REMINDER:
+// Schema = rules
+// Model = tool (function with methods)
+// Document = the saved record ({...})
