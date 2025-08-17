@@ -15,6 +15,18 @@ The hootSchema will also have an author property, which will act as a reference 
 User who created the hoot.
 */
 
+// Be sure to place the commentSchema above hootSchema as it will be referenced inside that object:
+
+const commentSchema = new mongoose.Schema(
+  {
+    text: {
+      type: String,
+      required: true
+    },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  },
+  { timestamps: true }
+);
 
 
 const hootSchema = new mongoose.Schema(
@@ -43,6 +55,7 @@ updatedAt properties. We can use the createdAt property when we want to display 
 hoot post was made.
 */
 
+
 // Register the model with Mongoose
 const Hoot = mongoose.model('Hoot', hootSchema);
 
@@ -51,7 +64,6 @@ module.exports = Hoot;
 
 // Or you could do the following that combines line 47 and line 50:
 // module.exports = mongoose.model("Hoot", hootSchema);
-
 
 // ----------------
 // REMINDER:
