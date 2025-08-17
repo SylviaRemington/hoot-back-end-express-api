@@ -24,5 +24,7 @@ app.listen(3000, () => {
   console.log('The express app is ready!');
 });
 
-
+// Note to self regarding package.json - In scripts fyi: 
+// start is for running the server in production mode. 
+// dev is for running the server in development mode with nodemon.
 
