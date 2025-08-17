@@ -43,11 +43,14 @@ updatedAt properties. We can use the createdAt property when we want to display 
 hoot post was made.
 */
 
-// [NEW] Register the model with Mongoose
-const Hoot = mongoose.model('Hoot', hootSchema); // [NEW]
+// Register the model with Mongoose
+const Hoot = mongoose.model('Hoot', hootSchema);
 
-// [NEW] Export so other files can require it
-module.exports = Hoot; // [NEW]
+// Export so other files can require it
+module.exports = Hoot;
+
+// Or you could do the following that combines line 47 and line 50:
+// module.exports = mongoose.model("Hoot", hootSchema);
 
 
 // ----------------
