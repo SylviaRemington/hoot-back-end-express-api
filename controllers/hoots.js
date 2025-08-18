@@ -48,10 +48,25 @@ router.get("/", verifyToken, async (req, res) => {
 
 // VIEW HOOT / Like a Showpage when we did express and EJS - 
 // This is a GET route - URL ends in the following /hoots/:hootId
-router.get("/:hootId", verifyToken, async (req, res) => {
-    // add route
+
+// OLDER SHOWPAGE BEFORE ADDED COMMENTS SECTION:
+// router.get("/:hootId", verifyToken, async (req, res) => {
+//     try {
+//         const hoot = await Hoot.findById(req.params.hootId).populate("author");
+//         res.status(200).json(hoot);
+//     } catch (err) {
+//         res.status(500).json({ err: err.message });
+//     }
+// });
+
+// NEWER SHOWPAGE AFTER COMMENTS SECTION ADDED:
+router.get('/:hootId', verifyToken, async (req, res) => {
     try {
-        const hoot = await Hoot.findById(req.params.hootId).populate("author");
+        // populate author of hoot and comments
+        const hoot = await Hoot.findById(req.params.hootId).populate([
+            'author',
+            'comments.author',
+        ]);
         res.status(200).json(hoot);
     } catch (err) {
         res.status(500).json({ err: err.message });
@@ -116,6 +131,35 @@ router.delete("/:hootId", verifyToken, async (req, res) => {
 });
 
 // -----------------------------------------------------------------
+// -----------------------------------------------------------------
+
+// COMMENTS SECTION:
+
+// CREATE NEW COMMENT - This is a POST route - /hoots/:hootId/comments
+router.post("/:hootId/comments", verifyToken, async (req, res) => {
+    // add route
+    try {
+        req.body.author = req.user._id;
+        const hoot = await Hoot.findById(req.params.hootId);
+        hoot.comments.push(req.body);
+        await hoot.save();
+
+        // Find the newly created comment:
+        const newComment = hoot.comments[hoot.comments.length - 1];
+
+        newComment._doc.author = req.user;
+
+        // Respond with the newComment:
+        res.status(201).json(newComment);
+
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+});
+
+// UPDATED COMMENT - This is a PUT route - /hoots/:hootId/comments/:commentId
+
+// DELETED COMMENT - This is a DELETE route - /hoots/:hootId/comments/:commentId
 
 
 // -----------------------------------------------------------------
