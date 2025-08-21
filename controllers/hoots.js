@@ -44,6 +44,11 @@ router.get("/", verifyToken, async (req, res) => {
 // Restricting access to the index and show functionality will reduce the amount of 
 // conditional rendering we need to implement in our React app.
 
+// Alternate Version from this part above:
+// const hoot = await Hoot.findById(req.params.hootId).populate([
+//           "comments.author",
+//     ]);
+
 // -----------------------------------------------------------------
 
 // VIEW HOOT / Like a Showpage when we did express and EJS - 
